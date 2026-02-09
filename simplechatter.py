@@ -33,6 +33,10 @@ def build_parser() -> argparse.ArgumentParser:
         help="Optional JSON object merged into request payload for provider-specific params.",
     )
     parser.add_argument("--timeout", type=float, default=60.0)
+    parser.add_argument(
+        "--initial-input",
+        help="Initial message to send before entering interactive mode.",
+    )
     return parser
 
 
@@ -156,15 +160,22 @@ def main() -> int:
     print(f"Model: {args.model}")
     print_help()
 
+    pending_input: str | None = args.initial_input
+
     while True:
-        try:
-            text = input(f"[{mode}]> ").strip()
-        except EOFError:
-            print("")
-            break
-        except KeyboardInterrupt:
-            print("\nInterrupted.")
-            break
+        if pending_input is not None:
+            text = pending_input.strip()
+            pending_input = None
+            print(f"[{mode}]> {text}")
+        else:
+            try:
+                text = input(f"[{mode}]> ").strip()
+            except EOFError:
+                print("")
+                break
+            except KeyboardInterrupt:
+                print("\nInterrupted.")
+                break
 
         if not text:
             continue
