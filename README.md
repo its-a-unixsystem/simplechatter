@@ -1,4 +1,4 @@
-# Simple Chat Debugger
+# Simplechatter (LLM Debugger)
 
 A lightweight, dependency-free Python CLI tool for debugging OpenAI-compatible chat completion APIs.
 
