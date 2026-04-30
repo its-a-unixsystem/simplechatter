@@ -2,9 +2,14 @@
 import argparse
 import json
 import os
-import sys
 import urllib.error
 import urllib.request
+
+from rich.console import Console
+from rich.json import JSON
+from rich.panel import Panel
+from rich.table import Table
+from rich.text import Text
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -36,6 +41,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--initial-input",
         help="Initial message to send before entering interactive mode.",
+    )
+    parser.add_argument(
+        "--interface",
+        choices=["plain", "rich"],
+        default="plain",
+        help="Interface style for prompts and output.",
     )
     return parser
 
@@ -121,44 +132,124 @@ def build_payload(
     return payload
 
 
-def print_help() -> None:
-    print("Commands:")
-    print("  /mode user|assistant|system|json|raw|none   Switch input mode")
-    print("  /show                                  Show current history")
-    print("  /clear                                 Clear history")
-    print("  /quit                                  Exit")
-    print("")
-    print("Modes:")
-    print("  user/assistant/system -> input becomes one message and is appended to history")
-    print("  json -> input must be JSON message object or array, appended to history")
-    print("  raw -> input sent as entire request body, no history modification")
+def format_json(raw: str) -> str | None:
+    try:
+        return json.dumps(json.loads(raw), indent=2, ensure_ascii=True)
+    except json.JSONDecodeError:
+        return None
+
+
+def print_help(interface: str, console: Console) -> None:
+    if interface == "rich":
+        commands = Table(show_header=True, header_style="bold")
+        commands.add_column("Command")
+        commands.add_column("Description")
+        commands.add_row("/mode user|assistant|system|json|raw|none", "Switch input mode")
+        commands.add_row("/interface plain|rich", "Switch interface style")
+        commands.add_row("/show", "Show current history")
+        commands.add_row("/clear", "Clear history")
+        commands.add_row("/quit", "Exit")
+
+        modes = Table(show_header=True, header_style="bold")
+        modes.add_column("Mode")
+        modes.add_column("Behavior")
+        modes.add_row("user/assistant/system", "Input becomes one message and is appended to history")
+        modes.add_row("json", "Input must be a JSON message object or array, appended to history")
+        modes.add_row("raw", "Input is sent as the entire request body, no history modification")
+
+        console.print(Panel(commands, title="Commands", border_style="cyan"))
+        console.print(Panel(modes, title="Modes", border_style="cyan"))
+        return
+
+    console.print("Commands:")
+    console.print("  /mode user|assistant|system|json|raw|none   Switch input mode")
+    console.print("  /interface plain|rich                  Switch interface style")
+    console.print("  /show                                  Show current history")
+    console.print("  /clear                                 Clear history")
+    console.print("  /quit                                  Exit")
+    console.print("")
+    console.print("Modes:")
+    console.print("  user/assistant/system -> input becomes one message and is appended to history")
+    console.print("  json -> input must be JSON message object or array, appended to history")
+    console.print("  raw -> input sent as entire request body, no history modification")
+
+
+def print_status(status: int, interface: str, console: Console) -> None:
+    if interface == "rich":
+        style = "green" if 200 <= status < 300 else "red"
+        console.print(Text(f"HTTP {status}", style=f"bold {style}"))
+        return
+    console.print(f"HTTP {status}")
+
+
+def print_body(raw_body: str, interface: str, console: Console) -> None:
+    if interface == "rich":
+        formatted = format_json(raw_body)
+        if formatted is None:
+            console.print(raw_body)
+        else:
+            console.print(JSON(formatted))
+        return
+    console.print(raw_body)
+
+
+def print_history(history: list[dict], interface: str, console: Console) -> None:
+    formatted = json.dumps(history, indent=2, ensure_ascii=True)
+    if interface == "rich":
+        console.print(Panel(JSON(formatted), title="History", border_style="cyan"))
+        return
+    console.print(formatted)
+
+
+def read_input(prompt: str, interface: str, console: Console) -> str:
+    if interface == "rich":
+        return console.input(Text(prompt, style="bold cyan"))
+    return console.input(prompt)
+
+
+def print_line(text: str, interface: str, console: Console, style: str | None = None) -> None:
+    if interface == "rich":
+        console.print(text, style=style)
+        return
+    console.print(text)
+
+
+def print_error(text: str, interface: str, console: Console) -> None:
+    if interface == "rich":
+        console.print(text, style="red")
+        return
+    console.print(text)
 
 
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
+    console = Console()
+    error_console = Console(stderr=True)
 
     token = args.api_token or os.getenv(args.api_token_env)
     if not token:
-        print(
+        print_error(
             f"Error: API token missing. Use --api-token or ${args.api_token_env}.",
-            file=sys.stderr,
+            args.interface,
+            error_console,
         )
         return 2
 
     try:
         extra_params = parse_extra_params(args.extra_params)
     except ValueError as e:
-        print(f"Error: {e}", file=sys.stderr)
+        print_error(f"Error: {e}", args.interface, error_console)
         return 2
 
     mode = "user"
+    interface = args.interface
     history: list[dict] = []
 
-    print("Simple chat debugger started.")
-    print(f"Endpoint: {args.url}")
-    print(f"Model: {args.model}")
-    print_help()
+    print_line("Simple chat debugger started.", interface, console, style="bold")
+    print_line(f"Endpoint: {args.url}", interface, console)
+    print_line(f"Model: {args.model}", interface, console)
+    print_help(interface, console)
 
     pending_input: str | None = args.initial_input
 
@@ -166,15 +257,15 @@ def main() -> int:
         if pending_input is not None:
             text = pending_input.strip()
             pending_input = None
-            print(f"[{mode}]> {text}")
+            print_line(f"[{mode}]> {text}", interface, console, style="cyan")
         else:
             try:
-                text = input(f"[{mode}]> ").strip()
+                text = read_input(f"[{mode}]> ", interface, console).strip()
             except EOFError:
-                print("")
+                print_line("", interface, console)
                 break
             except KeyboardInterrupt:
-                print("\nInterrupted.")
+                print_line("\nInterrupted.", interface, console)
                 break
 
         if not text:
@@ -183,11 +274,19 @@ def main() -> int:
         if text == "/quit":
             break
         if text == "/show":
-            print(json.dumps(history, indent=2, ensure_ascii=True))
+            print_history(history, interface, console)
             continue
         if text == "/clear":
             history.clear()
-            print("History cleared.")
+            print_line("History cleared.", interface, console, style="green")
+            continue
+        if text.startswith("/interface "):
+            candidate = text.split(maxsplit=1)[1].strip().lower()
+            if candidate in {"plain", "rich"}:
+                interface = candidate
+                print_line(f"Interface set to: {interface}", interface, console, style="green")
+            else:
+                print_line("Invalid interface.", interface, console, style="red")
             continue
         if text.startswith("/mode "):
             candidate = text.split(maxsplit=1)[1].strip().lower()
@@ -195,16 +294,16 @@ def main() -> int:
                 candidate = "raw"
             if candidate in {"user", "assistant", "system", "json", "raw"}:
                 mode = candidate
-                print(f"Mode set to: {mode}")
+                print_line(f"Mode set to: {mode}", interface, console, style="green")
             else:
-                print("Invalid mode.")
+                print_line("Invalid mode.", interface, console, style="red")
             continue
 
         if mode == "raw":
             try:
                 payload = json.loads(text)
             except json.JSONDecodeError as e:
-                print(f"Invalid raw JSON body: {e}")
+                print_line(f"Invalid raw JSON body: {e}", interface, console, style="red")
                 continue
         else:
             new_messages: list[dict]
@@ -212,7 +311,7 @@ def main() -> int:
                 try:
                     new_messages = parse_json_message(text)
                 except (ValueError, json.JSONDecodeError) as e:
-                    print(f"Invalid JSON message input: {e}")
+                    print_line(f"Invalid JSON message input: {e}", interface, console, style="red")
                     continue
             else:
                 new_messages = [{"role": mode, "content": text}]
@@ -230,8 +329,8 @@ def main() -> int:
             )
 
         status, raw_body = post_json(args.url, token, payload, timeout=args.timeout)
-        print(f"HTTP {status}")
-        print(raw_body)
+        print_status(status, interface, console)
+        print_body(raw_body, interface, console)
 
         if mode != "raw" and 200 <= status < 300:
             assistant_text = extract_assistant_text(raw_body)

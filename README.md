@@ -1,13 +1,19 @@
 # Simplechatter (LLM Debugger)
 
-A lightweight, dependency-free Python CLI tool for debugging OpenAI-compatible chat completion APIs.
+A lightweight Python CLI tool for debugging OpenAI-compatible chat completion APIs.
 
-This tool allows you to interactively test chat completion endpoints, inspect request payloads, and experiment with different parameters without needing to install heavy dependencies.
+This tool allows you to interactively test chat completion endpoints, inspect request payloads, and experiment with different parameters.
 
 ## Requirements
 
 - Python 3.x
-- No external packages required (uses standard library `urllib`, `json`, `argparse`, etc.)
+- Rich
+
+Install dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
 
 ## Usage
 
@@ -47,6 +53,7 @@ python3 simplechatter.py \
 | `--extra-params` | JSON object for provider-specific parameters. | - |
 | `--timeout` | Request timeout in seconds. | `60.0` |
 | `--initial-input` | Initial message to send before entering interactive mode. | - |
+| `--interface` | Interface style (`plain` or `rich`). | `plain` |
 
 ## Interactive Mode
 
@@ -60,6 +67,9 @@ Once started, you can type messages to send to the API.
   - `assistant`/`system`: Input is sent with the respective role.
   - `json`: Input must be a valid JSON message object or array of objects.
   - `raw`: Input is sent as the entire request body (no history logic).
+- `/interface [plain|rich]`
+  - Switch interface style.
+  - `rich`: Uses Rich for prompts, tables, status output, history, and formatted JSON response bodies.
 - `/show` - Show the current conversation history.
 - `/clear` - Clear the conversation history.
 - `/quit` - Exit the debugger.
