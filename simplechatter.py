@@ -50,7 +50,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--user-agent",
-        help="Optional User-Agent header (e.g. for providers that gate on client fingerprint).",
+        default="simplechatter/1.0",
+        help="User-Agent header sent with requests.",
     )
     return parser
 

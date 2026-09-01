@@ -32,12 +32,16 @@ class SimplechatterRichInterfaceTest(unittest.TestCase):
             ],
         ), patch.dict(os.environ, {"OPENAI_API_KEY": "test-token"}), patch.object(
             simplechatter, "post_json", return_value=(200, raw_response)
-        ), patch(
+        ) as post_json, patch(
             "builtins.input", side_effect=read_input
         ), contextlib.redirect_stdout(
             stdout
         ):
             self.assertEqual(simplechatter.main(), 0)
+            self.assertEqual(
+                post_json.call_args.kwargs["user_agent"],
+                "simplechatter/1.0",
+            )
 
         output = stdout.getvalue()
         self.assertIn("Interface set to: rich", output)
