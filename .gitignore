@@ -35,3 +35,14 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+
+# pricing-comparison: regenerable raw provider fetches
+# (bai_raw.json stays tracked — derived from ~/model_pricing_data.jsonl outside the repo)
+pricing-comparison/anymodel_raw.*
+pricing-comparison/nano_full.json
+pricing-comparison/nanogpt_raw.jsonl
+pricing-comparison/oneprovider_catalog.js
+pricing-comparison/oneprovider_raw.json
+pricing-comparison/openrouter_raw.*
+pricing-comparison/raunai_raw.*
+pricing-comparison/unorouter_raw.jsonl

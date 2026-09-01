@@ -10,7 +10,7 @@ asking things like "show me prices for Opus 5".
 | `models.jsonl` | **the dataset** — one record per (model x free/paid variant x provider) |
 | `query.py` | CLI to query it |
 | `normalize.py` | raw data -> `models.jsonl` (also exposes `canonicalize()`) |
-| `*_raw.json[l]` / `*.html` / `*.js` | raw provider data as fetched (kept for diffing on refresh) |
+| `*_raw.json[l]` / `*.html` / `*.js` | raw provider data as fetched — gitignored (regenerable); kept for diffing between refreshes. `bai_raw.json` is tracked since its source lives outside the repo |
 | `scrape_unorouter.py` | UnoRouter scraper (embedded Next.js flight-data extraction) |
 
 ## Record schema
