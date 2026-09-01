@@ -1,0 +1,667 @@
+[
+ {
+  "model_slug": "cx/gpt-5.6-sol",
+  "display_name": "GPT-5.6 Sol",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.2,
+  "multiplier": 4.0,
+  "vendor_list_input": 5.0,
+  "vendor_list_output": 30.0,
+  "context": "372K"
+ },
+ {
+  "model_slug": "cc/claude-opus-5",
+  "display_name": "Claude Opus 5",
+  "badges": [],
+  "vendor": "Anthropic",
+  "anymodel_usd_per_1m_flat": 0.3,
+  "multiplier": 6.0,
+  "vendor_list_input": 5.0,
+  "vendor_list_output": 25.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "cc/claude-opus-4-8",
+  "display_name": "Claude Opus 4.8",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "Anthropic",
+  "anymodel_usd_per_1m_flat": 0.2,
+  "multiplier": 4.0,
+  "vendor_list_input": 5.0,
+  "vendor_list_output": 25.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "glm/glm-5.3-flash",
+  "display_name": "GLM-5.3-Flash",
+  "badges": [],
+  "vendor": "Zhipu",
+  "anymodel_usd_per_1m_flat": 0.025,
+  "multiplier": 0.5,
+  "vendor_list_input": 0.15,
+  "vendor_list_output": 0.5,
+  "context": "1M"
+ },
+ {
+  "model_slug": "cc/claude-sonnet-5",
+  "display_name": "Claude Sonnet 5",
+  "badges": [],
+  "vendor": "Anthropic",
+  "anymodel_usd_per_1m_flat": 0.15,
+  "multiplier": 3.0,
+  "vendor_list_input": 2.0,
+  "vendor_list_output": 10.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "kmc/k3",
+  "display_name": "Kimi K3",
+  "badges": [],
+  "vendor": "Moonshot",
+  "anymodel_usd_per_1m_flat": 0.15,
+  "multiplier": 3.0,
+  "vendor_list_input": 3.0,
+  "vendor_list_output": 15.0,
+  "context": "256K"
+ },
+ {
+  "model_slug": "cx/gpt-5.5",
+  "display_name": "GPT-5.5",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.15,
+  "multiplier": 3.0,
+  "vendor_list_input": 5.0,
+  "vendor_list_output": 30.0,
+  "context": "400K"
+ },
+ {
+  "model_slug": "cx/gpt-5.6-luna",
+  "display_name": "GPT-5.6 Luna",
+  "badges": [],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.075,
+  "multiplier": 1.5,
+  "vendor_list_input": 1.0,
+  "vendor_list_output": 6.0,
+  "context": "272K"
+ },
+ {
+  "model_slug": "cc/claude-opus-4-7",
+  "display_name": "Claude Opus 4.7",
+  "badges": [],
+  "vendor": "Anthropic",
+  "anymodel_usd_per_1m_flat": 0.2,
+  "multiplier": 4.0,
+  "vendor_list_input": 5.0,
+  "vendor_list_output": 25.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "cx/gpt-5.6-terra",
+  "display_name": "GPT-5.6 Terra",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.15,
+  "multiplier": 3.0,
+  "vendor_list_input": 2.5,
+  "vendor_list_output": 15.0,
+  "context": "272K"
+ },
+ {
+  "model_slug": "gcli/grok-4.6",
+  "display_name": "Grok 4.6",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "xAI",
+  "anymodel_usd_per_1m_flat": 0.1,
+  "multiplier": 2.0,
+  "vendor_list_input": 2.0,
+  "vendor_list_output": 6.0,
+  "context": "500K"
+ },
+ {
+  "model_slug": "ag/claude-sonnet-4-6",
+  "display_name": "Claude Sonnet 4.6",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "Anthropic",
+  "anymodel_usd_per_1m_flat": 0.12,
+  "multiplier": 2.4,
+  "vendor_list_input": 3.0,
+  "vendor_list_output": 15.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "cx/gpt-5.4",
+  "display_name": "GPT-5.4",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.1,
+  "multiplier": 2.0,
+  "vendor_list_input": 2.5,
+  "vendor_list_output": 15.0,
+  "context": "400K"
+ },
+ {
+  "model_slug": "cc/claude-opus-4-6",
+  "display_name": "Claude Opus 4.6",
+  "badges": [],
+  "vendor": "Anthropic",
+  "anymodel_usd_per_1m_flat": 0.2,
+  "multiplier": 4.0,
+  "vendor_list_input": 5.0,
+  "vendor_list_output": 25.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "glm/glm-5.3",
+  "display_name": "GLM-5.3",
+  "badges": [],
+  "vendor": "Zhipu",
+  "anymodel_usd_per_1m_flat": 0.075,
+  "multiplier": 1.5,
+  "vendor_list_input": 1.4,
+  "vendor_list_output": 4.4,
+  "context": "200K"
+ },
+ {
+  "model_slug": "kmc/kimi-for-coding",
+  "display_name": "Kimi K2.7 Code",
+  "badges": [],
+  "vendor": "Moonshot",
+  "anymodel_usd_per_1m_flat": 0.075,
+  "multiplier": 1.5,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "256K"
+ },
+ {
+  "model_slug": "cc/claude-haiku-4-5-20251001",
+  "display_name": "Claude Haiku 4.5",
+  "badges": [],
+  "vendor": "Anthropic",
+  "anymodel_usd_per_1m_flat": 0.08,
+  "multiplier": 1.6,
+  "vendor_list_input": 1.0,
+  "vendor_list_output": 5.0,
+  "context": "200K"
+ },
+ {
+  "model_slug": "am/free",
+  "display_name": "Free Models Auto Router",
+  "badges": [],
+  "vendor": "AnyModel",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "Varies"
+ },
+ {
+  "model_slug": "cx/gpt-5.4-mini",
+  "display_name": "GPT-5.4 mini",
+  "badges": [],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.075,
+  "multiplier": 1.5,
+  "vendor_list_input": 0.75,
+  "vendor_list_output": 4.5,
+  "context": "400K"
+ },
+ {
+  "model_slug": "am/minimax-m3",
+  "display_name": "MiniMax M3",
+  "badges": [],
+  "vendor": "MiniMax",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "512K"
+ },
+ {
+  "model_slug": "ag/gemini-3.5-flash-high",
+  "display_name": "Gemini 3.5 Flash",
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.03,
+  "multiplier": 0.6,
+  "vendor_list_input": 1.5,
+  "vendor_list_output": 9.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "xai/grok-4.20-multi-agent-0309",
+  "display_name": "Grok 4.20 Multi-Agent Research",
+  "badges": [
+   "Popular"
+  ],
+  "vendor": "xAI",
+  "anymodel_usd_per_1m_flat": 0.1,
+  "multiplier": 2.0,
+  "vendor_list_input": 1.25,
+  "vendor_list_output": 2.5,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-3.1-flash-lite-preview",
+  "display_name": "Gemini 3.1 Flash-Lite",
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.03,
+  "multiplier": 0.6,
+  "vendor_list_input": 0.25,
+  "vendor_list_output": 1.5,
+  "context": "1M"
+ },
+ {
+  "model_slug": "am/nemotron-3-ultra-550b-a55b",
+  "display_name": "Nemotron 3 Ultra",
+  "badges": [],
+  "vendor": "NVIDIA",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "256K"
+ },
+ {
+  "model_slug": "qwen/qwen3.7-max",
+  "display_name": "Qwen3.7 Max",
+  "badges": [],
+  "vendor": "Qwen",
+  "anymodel_usd_per_1m_flat": 0.0125,
+  "multiplier": 0.25,
+  "vendor_list_input": 2.5,
+  "vendor_list_output": 7.5,
+  "context": "1M"
+ },
+ {
+  "model_slug": "am/gemma-4-31b-it",
+  "display_name": "Gemma 4 31B",
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "am/kimi-k3",
+  "display_name": "Kimi K3 1M",
+  "badges": [],
+  "vendor": "Moonshot",
+  "anymodel_usd_per_1m_flat": 0.05,
+  "multiplier": 1.0,
+  "vendor_list_input": 3.0,
+  "vendor_list_output": 15.0,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-2.5-flash",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.03,
+  "multiplier": 0.6,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-2.5-flash-lite",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.03,
+  "multiplier": 0.6,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-2.5-pro",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.085,
+  "multiplier": 1.7,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-3-flash",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.03,
+  "multiplier": 0.6,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-3.6-flash-high",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.03,
+  "multiplier": 0.6,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-3.7-flash-high",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.03,
+  "multiplier": 0.6,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gemini-pro-agent",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.085,
+  "multiplier": 1.7,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ag/gpt-oss-120b-medium",
+  "display_name": null,
+  "badges": [],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.025,
+  "multiplier": 0.5,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "am/diffusiongemma-26b-a4b-it",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Google",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "am/gpt-oss-20b",
+  "display_name": null,
+  "badges": [],
+  "vendor": "OpenAI",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "am/laguna-xs-2.1",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Poolside",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "am/llama-3.2-11b-vision-instruct",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Meta",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "am/mistral-nemotron",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Mistral AI",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "am/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "display_name": null,
+  "badges": [],
+  "vendor": "NVIDIA",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "256K"
+ },
+ {
+  "model_slug": "am/nemotron-3-super-120b-a12b",
+  "display_name": null,
+  "badges": [],
+  "vendor": "NVIDIA",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "256K"
+ },
+ {
+  "model_slug": "am/nemotron-3.5-content-safety",
+  "display_name": null,
+  "badges": [],
+  "vendor": "NVIDIA",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "32K"
+ },
+ {
+  "model_slug": "am/nemotron-3.5-lightning-30b-a3b",
+  "display_name": null,
+  "badges": [],
+  "vendor": "NVIDIA",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "256K"
+ },
+ {
+  "model_slug": "am/riva-translate-4b-instruct-v2",
+  "display_name": null,
+  "badges": [],
+  "vendor": "NVIDIA",
+  "anymodel_usd_per_1m_flat": 0.0,
+  "multiplier": 0.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "8K"
+ },
+ {
+  "model_slug": "ds/deepseek-v4-flash",
+  "display_name": null,
+  "badges": [],
+  "vendor": "DeepSeek",
+  "anymodel_usd_per_1m_flat": 0.0025,
+  "multiplier": 0.05,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "ds/deepseek-v4-pro",
+  "display_name": null,
+  "badges": [],
+  "vendor": "DeepSeek",
+  "anymodel_usd_per_1m_flat": 0.0075,
+  "multiplier": 0.15,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "glm/glm-4.6v",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Zhipu",
+  "anymodel_usd_per_1m_flat": 0.015,
+  "multiplier": 0.3,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "128K"
+ },
+ {
+  "model_slug": "glm/glm-4.7",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Zhipu",
+  "anymodel_usd_per_1m_flat": 0.015,
+  "multiplier": 0.3,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "200K"
+ },
+ {
+  "model_slug": "glm/glm-5",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Zhipu",
+  "anymodel_usd_per_1m_flat": 0.025,
+  "multiplier": 0.5,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "200K"
+ },
+ {
+  "model_slug": "glm/glm-5.1",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Zhipu",
+  "anymodel_usd_per_1m_flat": 0.075,
+  "multiplier": 1.5,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "200K"
+ },
+ {
+  "model_slug": "glm/glm-5.2",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Zhipu",
+  "anymodel_usd_per_1m_flat": 0.075,
+  "multiplier": 1.5,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "200K"
+ },
+ {
+  "model_slug": "qwen/qwen3.6-flash",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Qwen",
+  "anymodel_usd_per_1m_flat": 0.0125,
+  "multiplier": 0.25,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "qwen/qwen3.7-plus",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Qwen",
+  "anymodel_usd_per_1m_flat": 0.0125,
+  "multiplier": 0.25,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "qwen/qwen3.8-max",
+  "display_name": null,
+  "badges": [],
+  "vendor": "Qwen",
+  "anymodel_usd_per_1m_flat": 0.0125,
+  "multiplier": 0.25,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "xai/grok-4.20-0309-reasoning",
+  "display_name": null,
+  "badges": [],
+  "vendor": "xAI",
+  "anymodel_usd_per_1m_flat": 0.05,
+  "multiplier": 1.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "xai/grok-4.3",
+  "display_name": null,
+  "badges": [],
+  "vendor": "xAI",
+  "anymodel_usd_per_1m_flat": 0.05,
+  "multiplier": 1.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "1M"
+ },
+ {
+  "model_slug": "xai/grok-4.5",
+  "display_name": null,
+  "badges": [],
+  "vendor": "xAI",
+  "anymodel_usd_per_1m_flat": 0.1,
+  "multiplier": 2.0,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "500K"
+ },
+ {
+  "model_slug": "xai/grok-build-0.1",
+  "display_name": null,
+  "badges": [],
+  "vendor": "xAI",
+  "anymodel_usd_per_1m_flat": 0.025,
+  "multiplier": 0.5,
+  "vendor_list_input": null,
+  "vendor_list_output": null,
+  "context": "256K"
+ }
+]
