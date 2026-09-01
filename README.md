@@ -7,7 +7,7 @@ This tool allows you to interactively test chat completion endpoints, inspect re
 ## Requirements
 
 - Python 3.x
-- Rich
+- Rich for terminal formatting
 
 Install dependencies:
 
@@ -35,6 +35,12 @@ python3 simplechatter.py \
   --url "https://api.openai.com/v1/chat/completions" \
   --model "gpt-4" \
   --initial-input "Hello, how are you?"
+
+# Start with formatted terminal output
+python3 simplechatter.py \
+  --url "https://api.openai.com/v1/chat/completions" \
+  --model "gpt-4" \
+  --interface rich
 ```
 
 ### Arguments
@@ -54,10 +60,26 @@ python3 simplechatter.py \
 | `--timeout` | Request timeout in seconds. | `60.0` |
 | `--initial-input` | Initial message to send before entering interactive mode. | - |
 | `--interface` | Interface style (`plain` or `rich`). | `plain` |
+| `--user-agent` | Optional User-Agent header for client fingerprint gating. | - |
+
+### Client Fingerprinting
+
+Some API providers (like agentrouter.org, coding-plan relays) gate requests based on the User-Agent header, only allowing recognized coding-agent clients. For these providers, pass `--user-agent` with an approved client string:
+
+```bash
+python3 simplechatter.py \
+  --url "https://agentrouter.org/v1/chat/completions" \
+  --model "glm-5.3" \
+  --api-token "sk-..." \
+  --user-agent "claude-cli/2.1.220 (external, cli)"
+```
+
+Without `--user-agent`, simplechatter sends Python's default User-Agent (or none), which works with standard OpenAI-compatible providers but may be rejected by fingerprinting gateways with `401 unauthorized client detected`.
 
 ## Interactive Mode
 
 Once started, you can type messages to send to the API.
+Successful assistant replies are added back to the conversation history, so follow-up messages keep context.
 
 ### Slash Commands
 
@@ -67,9 +89,29 @@ Once started, you can type messages to send to the API.
   - `assistant`/`system`: Input is sent with the respective role.
   - `json`: Input must be a valid JSON message object or array of objects.
   - `raw`: Input is sent as the entire request body (no history logic).
+  - `none`: Alias for `raw`.
 - `/interface [plain|rich]`
   - Switch interface style.
-  - `rich`: Uses Rich for prompts, tables, status output, history, and formatted JSON response bodies.
+  - `plain`: Prints simple text output.
+  - `rich`: Uses formatted prompts, tables, status output, history panels, and pretty JSON response bodies.
 - `/show` - Show the current conversation history.
 - `/clear` - Clear the conversation history.
 - `/quit` - Exit the debugger.
+
+### JSON Modes
+
+Use `json` mode when you want to append one or more structured messages to the normal chat history:
+
+```text
+/mode json
+{"role": "system", "content": "Answer tersely."}
+```
+
+Use `raw` mode when you want to send the entire request body yourself:
+
+```text
+/mode raw
+{"model": "gpt-4", "messages": [{"role": "user", "content": "Ping"}]}
+```
+
+Raw mode bypasses automatic history updates and parameter merging.

@@ -48,19 +48,26 @@ def build_parser() -> argparse.ArgumentParser:
         default="plain",
         help="Interface style for prompts and output.",
     )
+    parser.add_argument(
+        "--user-agent",
+        help="Optional User-Agent header (e.g. for providers that gate on client fingerprint).",
+    )
     return parser
 
 
-def post_json(url: str, token: str, payload: dict, timeout: float) -> tuple[int, str]:
+def post_json(url: str, token: str, payload: dict, timeout: float, user_agent: str | None = None) -> tuple[int, str]:
     data = json.dumps(payload).encode("utf-8")
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {token}",
+    }
+    if user_agent:
+        headers["User-Agent"] = user_agent
     req = urllib.request.Request(
         url=url,
         data=data,
         method="POST",
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {token}",
-        },
+        headers=headers,
     )
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -328,7 +335,7 @@ def main() -> int:
                 extra_params=extra_params,
             )
 
-        status, raw_body = post_json(args.url, token, payload, timeout=args.timeout)
+        status, raw_body = post_json(args.url, token, payload, timeout=args.timeout, user_agent=args.user_agent)
         print_status(status, interface, console)
         print_body(raw_body, interface, console)
 
